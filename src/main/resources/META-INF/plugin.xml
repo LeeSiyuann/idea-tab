@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>dev.ideatab</id>
+    <name>Tab Harbor</name>
+    <version>0.1.1</version>
+    <vendor>Tab Harbor</vendor>
+    <description><![CDATA[
+        Organize editor files in an Edge-inspired vertical sidebar with colored, collapsible
+        groups, drag and drop, search, and locally saved sessions. Works without language indexes.
+    ]]></description>
+    <idea-version since-build="253" until-build="253.*"/>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Tab Harbor" anchor="left" secondary="true"
+                    factoryClass="dev.ideatab.ui.TabsToolWindowFactory" icon="/icons/ideaTab.svg"/>
+        <editorTabColorProvider implementation="dev.ideatab.integration.GroupTabColorProvider"/>
+    </extensions>
+    <actions>
+        <action id="IdeaTab.AddToGroup" class="dev.ideatab.actions.AddToGroupAction"
+                text="加入 Tab Harbor 分组…" description="将当前文件加入彩色标签组">
+            <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
+        </action>
+        <action id="IdeaTab.Show" class="dev.ideatab.actions.ShowTabsAction"
+                text="打开 Tab Harbor" description="打开垂直标签管理器"/>
+    </actions>
+</idea-plugin>
